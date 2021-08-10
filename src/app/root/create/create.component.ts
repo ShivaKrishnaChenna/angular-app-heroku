@@ -39,6 +39,7 @@ export class CreateComponent implements OnInit {
       name: new FormControl(null),
       description : new FormControl(null),
       price: new FormControl(null),
+      schedule : new FormControl(null),
       image: new FormControl(null),
       fullname : new FormControl(null),
       address : new FormControl(null),
@@ -88,7 +89,7 @@ export class CreateComponent implements OnInit {
   public onSubmit(): void{
     if(this.validation()) {
     this.rest.createProduct(this.form.value.name,this.form.value.description,
-      this.form.value.price, this.form.value.image, this.form.value.fullname,
+      this.form.value.price,this.form.value.schedule, this.form.value.image, this.form.value.fullname,
       this.form.value.address, this.form.value.state, this.form.value.phonenumber, "processing",
       this.user._id.toString()).subscribe((productData) => {
         let data = productData.product;
@@ -97,6 +98,7 @@ export class CreateComponent implements OnInit {
           title: data.title,
           description: data.description,
           price : data.price,
+          schedule : data.schedule,
           imagePath: data.imagePath,
           fullname : data.fullname,
           address: data.address,

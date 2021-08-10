@@ -11,30 +11,31 @@
 		<form>
 			<div class="contact-form">
 				<div class="form-group">
-				  <label class="control-label col-sm-3" for="fname">Product Name:</label>
+				  <label class="control-label col-sm-3" for="name">Product Name:</label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" name="firstName"
-					id="fname" placeholder="Enter name of the product" >
+					<input type="text" class="form-control" name="name"
+					id="name" placeholder="Enter name of the product"  [(ngModel)]="name">
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-3" for="lname">Product Cost:</label>
+				  <label class="control-label col-sm-3" for="cost">Product Cost:</label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" name="lastName"
-					id="lname" placeholder="Enter weight of the product" >
+					<input type="text" class="form-control" name="cost"
+					id="cost" placeholder="Enter weight of the product"  [(ngModel)]="cost" >
 				  </div>
 				</div>
 				<div class="form-group">
 				  <label class="control-label col-sm-3" for="email">Email:</label>
 				  <div class="col-sm-10">
 					<input type="email" class="form-control" id="email" name="email"
-					placeholder="Enter your email" >
+					placeholder="Enter your email"   [(ngModel)]="email">
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-3" for="comment">Product Details:</label>
+				  <label class="control-label col-sm-3" for="details">Product Details:</label>
 				  <div class="col-sm-10">
-					<textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+					<textarea class="form-control" rows="5" id="details" name="details"
+					 [(ngModel)]="details"></textarea>
 				  </div>
 				</div>
 				<div class="form-group">        

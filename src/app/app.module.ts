@@ -19,7 +19,8 @@ import { ContactComponent } from './root/contact/contact.component';
 import { PaymentComponent } from './root/payment/payment.component';
 import { ClaimsComponent } from './claims/claims.component';
 import { CareersComponent } from './root/careers/careers.component';
-
+import { AdminDetailsComponent } from './root/admin-details/admin-details.component';
+import { ClaimDetailsComponent } from './root/claim-details/claim-details.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { CareersComponent } from './root/careers/careers.component';
     PaymentComponent,
     ClaimsComponent,
     CareersComponent,
+    AdminDetailsComponent,
+    ClaimDetailsComponent,
   ],
   imports: [
     BrowserModule, 

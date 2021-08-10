@@ -3,6 +3,7 @@ export class Product {
     title : String;
     description : String;
     price: string;
+    schedule: string;
     imagePath: String;
     isSelected: boolean;
     fullname: String;

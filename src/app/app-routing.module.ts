@@ -14,6 +14,8 @@ import { ContactComponent } from './root/contact/contact.component';
 import { ClaimsComponent } from './claims/claims.component';
 import { PaymentComponent } from './root/payment/payment.component';
 import { CareersComponent } from './root/careers/careers.component';
+import { AdminDetailsComponent } from './root/admin-details/admin-details.component';
+import { ClaimDetailsComponent } from './root/claim-details/claim-details.component';
 
 
 
@@ -23,8 +25,10 @@ const routes: Routes = [
   { path: 'user-login', component: UserLoginComponent },
   { path: 'user-register', component: UserRegisterComponent },
   { path: 'tracking-detials', component: TrackingDetailsComponent },
+  {path: 'admin-details', component: AdminDetailsComponent},
   { path: 'about', component: AboutComponent },
   { path: 'shipment-details/:id', component: ShipmentDetailsComponent },
+  { path: 'claim-details/:id', component: ClaimDetailsComponent },
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'services', component: ServicesComponent},
   {path: 'contact', component: ContactComponent},

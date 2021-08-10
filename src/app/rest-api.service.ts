@@ -6,13 +6,15 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "./models/user";
 import { Product } from "./models/product";
 import { Contact } from "./models/contact";
+import { Claim } from "./models/claim";
 
 //exporting the RestAPi Service
 @Injectable()
 
 export class RestApiService {
 
-  private URL = 'https://capstone-api-project.herokuapp.com';
+  // private URL = 'https://capstone-api-project.herokuapp.com';
+  private URL = 'http://localhost:3553';
     
   constructor(private http: HttpClient) {}
 
@@ -35,6 +37,13 @@ export class RestApiService {
       .catch(this.handleError);
   }
 
+  getClaims() : Promise<void | Claim[]>{
+    return this.http.get(this.URL + '/claims/')
+      .toPromise()
+      .then(response => response as Claim[])
+      .catch(this.handleError);
+  }
+
   getProductsByUserid(userid : string) : Promise<void | Product[]>{
     return this.http.get(this.URL + '/products/'+ userid)
       .toPromise()
@@ -49,19 +58,20 @@ export class RestApiService {
       .catch(this.handleError);
   }
 
+  getClaim(claimId: string) : Promise<void | Claim>{
+    return this.http.get(this.URL + '/claim/' + claimId)
+      .toPromise()
+      .then(response => response as Claim)
+      .catch(this.handleError);
+  }
+
+
   getSingleUser(userId: string): Promise<void | User>{
     return this.http.get(this.URL + '/users/' + userId)
     .toPromise()
     .then(response => response as User)
     .catch(this.handleError);
   }
-
-  // updateFood(newFood: Food): Promise<void | Food> {
-  //   return this.http.post(this.foodsUrl + '/' + newFood._id, newFood)
-  //   .toPromise()
-  //   .then(response => response as Food)
-  //   .catch(this.handleError);
-  // }
 
   deleteProduct(productId: string): Promise<void | Product>{
     return this.http.get(this.URL + '/products/delete/' + productId,)
@@ -74,6 +84,13 @@ export class RestApiService {
     return this.http.post(this.URL + '/users/', newUser)
     .toPromise()
     .then(response => response as User)
+    .catch(this.handleError);
+  }
+
+  createClaim(newClaim: Claim): Promise<void | Claim> {
+    return this.http.post(this.URL + '/claim/', newClaim)
+    .toPromise()
+    .then(response => response as Claim)
     .catch(this.handleError);
   }
 
@@ -100,13 +117,20 @@ export class RestApiService {
     return this.http.post(this.URL + '/product/'+ product._id, product);
   }
 
+  updateClaim(claim : Claim) {
+    return this.http.post(this.URL + '/claim/'+ claim._id, claim);
+  }
+
+
+
   
-  createProduct(name: string, description: string, price: string, image: File,fullname: string,
+  createProduct(name: string, description: string, price: string, schedule: string, image: File,fullname: string,
     address: string, state: string, phonenumber : string, status: string, userid: string){
     const data = new FormData();
     data.append("title", name);
     data.append("description",description);
     data.append("price", price);
+    data.append("schedule", schedule);
     data.append("image", image, name);
     data.append("fullname", fullname);
     data.append("address", address);

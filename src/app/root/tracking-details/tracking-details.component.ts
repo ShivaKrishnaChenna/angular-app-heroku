@@ -15,6 +15,7 @@ export class TrackingDetailsComponent implements OnInit {
   public products : Product[];
   public user : User;
   public displayMode = "View";
+  public trackingId = '';
 
   constructor(
     private router: Router,
@@ -55,5 +56,10 @@ export class TrackingDetailsComponent implements OnInit {
   public viewProductDetails(productId) {
     this.router.navigate(['shipment-details/' + productId]);
   }
+
+  public submitTrackingId() {
+    this.router.navigate(['shipment-details/' + this.trackingId]);
+  }
+
 
 }
