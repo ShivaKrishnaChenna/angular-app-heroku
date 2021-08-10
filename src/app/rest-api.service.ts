@@ -13,8 +13,8 @@ import { Claim } from "./models/claim";
 
 export class RestApiService {
 
-  // private URL = 'https://capstone-api-project.herokuapp.com';
-  private URL = 'http://localhost:3553';
+  private URL = 'https://capstone-api-project.herokuapp.com';
+  // private URL = 'http://localhost:3553';
     
   constructor(private http: HttpClient) {}
 
